@@ -91,6 +91,25 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
     ]
 }
 ```
+#### Example API Upload Image
+```json
+curl --location --request POST 'http://34.124.128.222:3232/api/tiket-image' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
+--form 'file=@"/xxx/xx//xxx"'
+
+```
+#### Example Response Upload Image
+```json
+{
+    "status": 200,
+    "message": "Success",
+    "data": [
+        {
+            "path": "34.124.128.222:9000/briview-v2/uploads/vendor/tiket/22/2022/12/22/WodTB2rJ8SobMgQ1nrtR245jxOrsov.png"
+        }
+    ]
+}
+```
 ### 2. Get History Tiket  
 
 #### HTTP Request
@@ -116,7 +135,6 @@ PATCH http://{{host}}:3232/api/tiket-log
 | no_tiket   | optional  	| `no_tiket` Nomer Tiket|
 | created_at    | optional    |   terminal id atau mesin  	   |
 | date         | optional      |   error atau problem mesin yang tampil, error tersebut harus sesuai dengan service levelnya  	   |
-
 
 #### Result API
 
