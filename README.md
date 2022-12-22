@@ -49,7 +49,7 @@ PATCH http://{{host}}:3232/api/tiket
 
 #### Example API
 ```json
-curl --location --request POST 'http://34.124.128.222:3232/api/tiket' \
+curl --location --request POST 'http://{{host}}:3232/api/tiket' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
 --header 'Content-Type: application/json' \
 --data-raw '[
@@ -126,7 +126,7 @@ PATCH http://{{host}}:3232/api/tiket-log
 
 #### Example API
 ```json
-curl --location --request POST 'http://34.124.128.222:3232/api/tiket-log' \
+curl --location --request POST 'http://{{host}}:3232/api/tiket-log' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
 --form 'no_tiket="TESTINGG 4"' \
 --form 'created_at="2022-12-22 07:58:14"' \
