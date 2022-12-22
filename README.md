@@ -24,6 +24,7 @@ PATCH http://{{host}}:3232/api/tiket
 | ------------- |:--------------|
 |Endpoint Kirim Tiket |/api/tiket|
 |Endpoint History Tiket |/api/tiket-log|
+|Endpoint Upload Image | /api/tiket-image|
 |Header |Key : Authorization, Value : JWT |
 |Body | Json Raw |
 
@@ -93,7 +94,7 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
 ```
 #### Example API Upload Image
 ```json
-curl --location --request POST 'http://34.124.128.222:3232/api/tiket-image' \
+curl --location --request POST 'http://{{host}}:3232/api/tiket-image' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
 --form 'file=@"/xxx/xx//xxx"'
 
@@ -105,7 +106,7 @@ curl --location --request POST 'http://34.124.128.222:3232/api/tiket-image' \
     "message": "Success",
     "data": [
         {
-            "path": "34.124.128.222:9000/briview-v2/uploads/vendor/tiket/22/2022/12/22/WodTB2rJ8SobMgQ1nrtR245jxOrsov.png"
+            "path": "localhost:9000/briview-v2/uploads/vendor/tiket/22/2022/12/22/WodTB2rJ8SobMgQ1nrtR245jxOrsov.png"
         }
     ]
 }
