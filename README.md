@@ -1,6 +1,6 @@
-# Dokumentasi BRIVIEW (Multi Vendor API)
+# Dokumentasi BRIview (Multi Vendor API)
 
-### 1.  Send Tiket
+### 1.  POST (Automatic Tiket)
 
 #### HTTP Request
 ```json
@@ -23,10 +23,19 @@ PATCH http://{{host}}:3232/api/tiket
 | Prepared Before Running |  Description  |
 | ------------- |:--------------|
 |Endpoint Kirim Tiket |/api/tiket|
-|Endpoint History Tiket |/api/tiket-log|
-|Endpoint Upload Image | /api/tiket-image|
 |Header |Key : Authorization, Value : JWT |
 |Body | Json Raw |
+
+#### Requirements Data
+
+| Parameters |  Data Type  | Max Character | 	
+| ------------- |:--------------:| -------------|
+| no_tiket| String | 255 |
+| tid     | int64      | 12 |
+| error   | String    |  255  |
+| status  | String |  255  |
+| service_level | String | 255 |
+| created_at    | String  | 255 |
 
 
 #### Parameters Send Tiket To Briview
@@ -34,13 +43,11 @@ PATCH http://{{host}}:3232/api/tiket
 | Parameters    |  Ketentuan Form      | Description  |
 | ------------- |:-------------:| -------------|
 | no_tiket   | required	  	| `no_tiket` No tiket dari vendor |
-| tid         | required      |   Terminal id atau mesin  	   |
-| error         | required      |   Error atau problem mesin yang tampil, error tersebut harus sesuai dengan service levelnya  	   |
-| status         | required      |   Status tiket saat ini, contoh OPEN,REQ_CLOSE,DISPATCH,dll 	   |
-| service_level         | required      |   Service level, contoh FLM/SLM 	   |
-| remarks_bri         | optional      |   Remarks yang diberikan oleh bri untuk vendor 	   |
-| remarks_vendor         | optional      |   Remarks yang diberikan oleh vendor untuk bri	   |
-| image         | optional      |   Path image yang didapatkan setelah hit endpoint upload image	   |
+| tid         | required      |   Terminal id atau Mesin  	   |
+| error         | required      |   Error atau problem mesin yang tampil, Error tersebut harus sesuai dengan service levelnya  	   |
+| status         | required      |   Status tiket saat ini, Contoh "OPEN,REQ_CLOSE,DISPATCH,dll" 	   |
+| service_level         | required      |   Service level, Contoh "FLM/SLM" 	   |
+| created_at         | required      |   Datetime, "2022-12-22 08:58:14"	   |
 
 #### Result API
 
@@ -57,14 +64,9 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
     {
         "no_tiket": "A2022122216000212",
         "tid": "160002",
-        "error": "VANDALISM",
+        "error": "PRINTER ERROR",
         "status": "OPEN",
         "service_level": "FLM",
-        "remarks_bri": "TESTING",
-        "remarks_vendor": "TESTING",
-        "image": "/testing/imageTiketVendor/A20220422213025153861023.png",
-        "nama_spv": "Joko",
-        "nama_eng": "Widodo",
         "created_at": "2022-12-22 08:58:14"
     }
 ]'
@@ -79,101 +81,25 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
         {
             "no_tiket": "A2022122216000212",
             "tid": "160002",
-            "error": "VANDALISM",
+            "error": "PRINTER ERROR",
             "status": "OPEN",
             "service_level": "FLM",
-            "remarks_bri": "TESTING",
-            "remarks_vendor": "TESTING",
-            "image": "/testing/imageTiketVendor/A20220422213025153861023.png",
-            "nama_spv": "Joko",
-            "nama_eng": "Widodo",
             "created_at": "2022-12-22 08:58:14"
         }
     ]
 }
 ```
-#### Example API Upload Image
-```json
-curl --location --request POST 'http://{{host}}:3232/api/tiket-image' \
---header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
---form 'file=@"/xxx/xx//xxx"'
+#### For the ip address and token we will send a website link generate token and ip, to maintain integration privacy security
 
-```
-#### Example Response Upload Image
-```json
-{
-    "status": 200,
-    "message": "Success",
-    "data": [
-        {
-            "path": "localhost:9000/briview-v2/uploads/vendor/tiket/22/2022/12/22/WodTB2rJ8SobMgQ1nrtR245jxOrsov.png"
-        }
-    ]
-}
-```
-### 2. Get History Tiket  
 
-#### HTTP Request
-```json
-PATCH http://{{host}}:3232/api/tiket-log
-```
-#### Response Description
-
-| Status   |  Description  |
+| Token |  IP |
 | ------------- |:--------------|
-|`200`| OK Everything is working, The resource has been fetched and is transmitted in the message body.|
-|`201`| CREATED A new resource has been created.|
-|`204`| NO CONTENT The resource was successfully deleted, no response body.|
-|`400`| BAD REQUEST The request was invalid or cannot be served. The exact error should be explained in the error payload.|
-|`401`| UNAUTHORIZED The request requires user authentication.|
-|`404`| NOT FOUND There is no resource behind the URI.|
-|`500`| INTERNAL SERVER ERROR API If an error occurs in the global catch blog, the stack trace should be logged and not returned as a response |
+| XXXXX | http://{{xxx}}:3232/api/tiket  |
 
-#### Parameters Get History Tiket by Filter
 
-| Parameters    |    Ketentuan Form   | Description  |
-| ------------- |:-------------:| -------------|
-| no_tiket   | optional  	| `no_tiket` Nomer Tiket|
-| created_at    | optional    |   terminal id atau mesin  	   |
-| date         | optional      |   error atau problem mesin yang tampil, error tersebut harus sesuai dengan service levelnya  	   |
+#### Regards. 
 
-#### Result API
+Software Developer
 
-| Data |  Description  |
-| ------------- |:--------------|
-| curl | Json raw |
 
-#### Example API
-```json
-curl --location --request POST 'http://{{host}}:3232/api/tiket-log' \
---header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
---form 'no_tiket="TESTINGG 4"' \
---form 'created_at="2022-12-22 07:58:14"' \
---form 'date="2022-12-22"'
-```
-#### Example Response
-```json
-{
-    "recordsTotal" : "413",
-    "recordsFiltered" : "1",
-    "status":"200",
-    "massage":"data ditemukan",
-	"data": [
-    {
-      "id": 464,
-      "multi_vendor_id": "TESTINGG 4", //the data you are looking for
-      "tb_master_vendor_id": 72,
-      "tb_tid_allocation_id": 3407,
-      "tb_atm_error_vendor_id": 0,
-      "tb_status_id": 2,
-      "tb_service_level_id": 1,
-      "remarks_bri": "TESTING",
-      "remarks_vendor": "TESTING",
-      "image": "/testing/imageTiketVendor/A20220422213025153861023.png",
-      "nama_spv": "TEST",
-      "nama_eng": "TEST",
-      "created_at": "2022-12-22 07:58:14" //the data you are looking for
-    }
-  ]
-}
-```
+#### PT BRINGIN INTI TEKNOLOGI
