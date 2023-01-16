@@ -44,8 +44,6 @@ PATCH http://{{host}}:3232/api/tiket
 | Status   |  Description  |
 | ------------- |:--------------|
 |`200`| OK Everything is working, The resource has been fetched and is transmitted in the message body.|
-|`201`| CREATED A new resource has been created.|
-|`204`| NO CONTENT The resource was successfully deleted, no response body.|
 |`400`| BAD REQUEST The request was invalid or cannot be served. The exact error should be explained in the error payload.|
 |`401`| UNAUTHORIZED The request requires user authentication.|
 |`404`| NOT FOUND There is no resource behind the URI.|
@@ -130,8 +128,6 @@ PATCH http://{{host}}:3232/api/status-mesin
 | Status   |  Description  |
 | ------------- |:--------------|
 |`200`| OK Everything is working, The resource has been fetched and is transmitted in the message body.|
-|`201`| CREATED A new resource has been created.|
-|`204`| NO CONTENT The resource was successfully deleted, no response body.|
 |`400`| BAD REQUEST The request was invalid or cannot be served. The exact error should be explained in the error payload.|
 |`401`| UNAUTHORIZED The request requires user authentication.|
 |`404`| NOT FOUND There is no resource behind the URI.|
