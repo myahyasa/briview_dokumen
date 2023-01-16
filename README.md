@@ -98,11 +98,11 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
 | ------------- |:--------------|
 | XXXXX | http://{{xxx}}:3232/api/tiket  |
 
-### 2.  POST (Status Mesin)
+# 2.  POST (Status Mesin)
 
 #### HTTP Request
 ```json
-PATCH http://{{host}}:3232/api/tiket
+PATCH http://{{host}}:3232/api/status-mesin
 ```
 #### Response Description
 
@@ -128,24 +128,14 @@ PATCH http://{{host}}:3232/api/tiket
 
 | Parameters |  Data Type  | Max Character | 	
 | ------------- |:--------------:| -------------|
-| no_tiket| String | 255 |
-| tid     | int64      | 12 |
-| error   | String    |  255  |
-| status  | String |  255  |
-| service_level | String | 255 |
-| created_at    | String  | 255 |
-
-
-#### Parameters Send Tiket To Briview
-
-| Parameters    |  Ketentuan Form      | Description  |
-| ------------- |:-------------:| -------------|
-| no_tiket   | required	  	| `no_tiket` No tiket dari vendor |
-| tid         | required      |   Terminal id atau Mesin  	   |
-| error         | required      |   Error atau problem mesin yang tampil, Error tersebut harus sesuai dengan service levelnya  	   |
-| status         | required      |   Status tiket saat ini, Contoh "OPEN,REQ_CLOSE,DISPATCH,dll" 	   |
-| service_level         | required      |   Service level, Contoh "FLM/SLM" 	   |
-| created_at         | required      |   Datetime, "2022-12-22 08:58:14"	   |
+| tid| String | 255 |
+| atm_status    | String      | 255 |
+| last_amount   | int   |  64 |
+| casette_1_100k  | int |  64  |
+| casette_2_100k | int | 64 |
+| casette_3_50k    | int  | 64 |
+| casette_4_50k    | int  | 64 |
+| last_transaction   | timestamp  | YYYY-MM-DD HH-MM-SS |
 
 #### Result API
 
@@ -155,19 +145,21 @@ PATCH http://{{host}}:3232/api/tiket
 
 #### Example API
 ```json
-curl --location --request POST 'http://{{host}}:3232/api/tiket' \
---header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
+curl --location --request POST 'http://xxx:3232/api/status-mesin' \
+--header 'Authorization: xx-xx--xxx' \
 --header 'Content-Type: application/json' \
 --data-raw '[
     {
-        "no_tiket": "A2022122216000212",
-        "tid": "160002",
-        "error": "PRINTER ERROR",
-        "status": "OPEN",
-        "service_level": "FLM",
-        "created_at": "2022-12-22 08:58:14"
+      "tid": "002016",
+      "atm_status": "IN_SERVICE",
+      "last_amount": 1,
+      "casette_1_100k": 1368,
+      "casette_2_100k": 1000,
+      "casette_3_50k": 605,
+      "casette_4_50k": 100121,
+      "last_transaction": "2023-01-06 17:33:15"
     }
-]'
+  ]'
 
 ```
 #### Example Response
@@ -177,12 +169,14 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
     "message": "OK",
     "data": [
         {
-            "no_tiket": "A2022122216000212",
-            "tid": "160002",
-            "error": "PRINTER ERROR",
-            "status": "OPEN",
-            "service_level": "FLM",
-            "created_at": "2022-12-22 08:58:14"
+             "tid": "002016",
+              "atm_status": "IN_SERVICE",
+              "last_amount": 1,
+              "casette_1_100k": 1368,
+              "casette_2_100k": 1000,
+              "casette_3_50k": 605,
+              "casette_4_50k": 100121,
+              "last_transaction": "2023-01-06 17:33:15"
         }
     ]
 }
@@ -192,7 +186,7 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
 
 | Token |  IP |
 | ------------- |:--------------|
-| XXXXX | http://{{xxx}}:3232/api/tiket  |
+| XXXXX | http://{{xxx}}:3232/api/status-mesin  |
 
 <!-- CONTACT -->
 ## Contact
