@@ -120,7 +120,7 @@ PATCH http://{{host}}:3232/api/status-mesin
 <a name="readme-top"></a>
 | Prepared Before Running |  Description  |
 | ------------- |:--------------|
-|Endpoint Kirim Tiket |/api/tiket|
+|Endpoint Kirim Status Mesin |/api/status-mesin|
 |Header |Key : Authorization, Value : JWT |
 |Body | Json Raw |
 
