@@ -1,8 +1,8 @@
-# Dokumentasi BRIview (Multi Vendor API)
+# REST API Data Delivery explanation Document - BRIview
 
 <a name="readme-top"></a>
 
-### 1.  POST (Automatic Tiket)
+# 1. Send Automatic Ticket (Agent Base)
 
 #### HTTP Request
 ```json
@@ -98,7 +98,7 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
 | ------------- |:--------------|
 | XXXXX | http://{{xxx}}:3232/api/tiket  |
 
-# 2.  POST (Status Mesin)
+# 2. Send Machine Status (Agent Base)
 
 #### HTTP Request
 ```json
