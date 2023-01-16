@@ -182,7 +182,7 @@ curl --location --request POST 'http://xxx:3232/api/status-mesin' \
 
 BIT - [@bit](https://twitter.com/bitcorp_id) - corp@bitcorp.id
 
-Project Link : [https://github.com/myahyasa/briview_dokumen](https://github.com/myahyasa/briview_dokumen)
+Project Link : [briview.bitcorp.id](https://github.com/myahyasa/briview_dokumen)
 
 #### Regards. 
 
