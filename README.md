@@ -161,20 +161,13 @@ curl --location --request POST 'http://xxx:3232/api/status-mesin' \
 #### Example Response
 ```json
 {
+    "draw": 0,
+    "recordsTotal": 0,
+    "recordsFiltered": 0,
     "status": 200,
-    "message": "OK",
-    "data": [
-        {
-             "tid": "002016",
-              "atm_status": "IN_SERVICE",
-              "last_amount": 1,
-              "casette_1_100k": 1368,
-              "casette_2_100k": 1000,
-              "casette_3_50k": 605,
-              "casette_4_50k": 100121,
-              "last_transaction": "2023-01-06 17:33:15"
-        }
-    ]
+    "error": "",
+    "message": "OK, Success",
+    "data": null
 }
 ```
 #### For the ip address and token we will send a website link generate token and ip, to maintain integration privacy security
