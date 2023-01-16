@@ -8,18 +8,6 @@
 ```json
 PATCH http://{{host}}:3232/api/tiket
 ```
-#### Response Description
-
-| Status   |  Description  |
-| ------------- |:--------------|
-|`200`| OK Everything is working, The resource has been fetched and is transmitted in the message body.|
-|`201`| CREATED A new resource has been created.|
-|`204`| NO CONTENT The resource was successfully deleted, no response body.|
-|`400`| BAD REQUEST The request was invalid or cannot be served. The exact error should be explained in the error payload.|
-|`401`| UNAUTHORIZED The request requires user authentication.|
-|`404`| NOT FOUND There is no resource behind the URI.|
-|`500`| INTERNAL SERVER ERROR API If an error occurs in the global catch blog, the stack trace should be logged and not returned as a response |
-
 #### Preparation
 <a name="readme-top"></a>
 | Prepared Before Running |  Description  |
@@ -50,6 +38,18 @@ PATCH http://{{host}}:3232/api/tiket
 | status         | required      |   Status tiket saat ini, Contoh "OPEN,REQ_CLOSE,DISPATCH,dll" 	   |
 | service_level         | required      |   Service level, Contoh "FLM/SLM" 	   |
 | created_at         | required      |   Datetime, "2022-12-22 08:58:14"	   |
+
+#### Response Description
+
+| Status   |  Description  |
+| ------------- |:--------------|
+|`200`| OK Everything is working, The resource has been fetched and is transmitted in the message body.|
+|`201`| CREATED A new resource has been created.|
+|`204`| NO CONTENT The resource was successfully deleted, no response body.|
+|`400`| BAD REQUEST The request was invalid or cannot be served. The exact error should be explained in the error payload.|
+|`401`| UNAUTHORIZED The request requires user authentication.|
+|`404`| NOT FOUND There is no resource behind the URI.|
+|`500`| INTERNAL SERVER ERROR API If an error occurs in the global catch blog, the stack trace should be logged and not returned as a response |
 
 #### Result API
 
@@ -104,18 +104,6 @@ curl --location --request POST 'http://{{host}}:3232/api/tiket' \
 ```json
 PATCH http://{{host}}:3232/api/status-mesin
 ```
-#### Response Description
-
-| Status   |  Description  |
-| ------------- |:--------------|
-|`200`| OK Everything is working, The resource has been fetched and is transmitted in the message body.|
-|`201`| CREATED A new resource has been created.|
-|`204`| NO CONTENT The resource was successfully deleted, no response body.|
-|`400`| BAD REQUEST The request was invalid or cannot be served. The exact error should be explained in the error payload.|
-|`401`| UNAUTHORIZED The request requires user authentication.|
-|`404`| NOT FOUND There is no resource behind the URI.|
-|`500`| INTERNAL SERVER ERROR API If an error occurs in the global catch blog, the stack trace should be logged and not returned as a response |
-
 #### Preparation
 <a name="readme-top"></a>
 | Prepared Before Running |  Description  |
@@ -136,6 +124,18 @@ PATCH http://{{host}}:3232/api/status-mesin
 | casette_3_50k    | int  | 64 |
 | casette_4_50k    | int  | 64 |
 | last_transaction   | timestamp  | YYYY-MM-DD HH-MM-SS |
+
+#### Response Description
+
+| Status   |  Description  |
+| ------------- |:--------------|
+|`200`| OK Everything is working, The resource has been fetched and is transmitted in the message body.|
+|`201`| CREATED A new resource has been created.|
+|`204`| NO CONTENT The resource was successfully deleted, no response body.|
+|`400`| BAD REQUEST The request was invalid or cannot be served. The exact error should be explained in the error payload.|
+|`401`| UNAUTHORIZED The request requires user authentication.|
+|`404`| NOT FOUND There is no resource behind the URI.|
+|`500`| INTERNAL SERVER ERROR API If an error occurs in the global catch blog, the stack trace should be logged and not returned as a response |
 
 #### Result API
 
