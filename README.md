@@ -149,10 +149,10 @@ curl --location --request POST 'http://xxx:3232/api/status-mesin' \
       "tid": "002016",
       "atm_status": "IN_SERVICE",
       "last_amount": 1,
-      "casette_1_100k": 1368,
-      "casette_2_100k": 1000,
-      "casette_3_50k": 605,
-      "casette_4_50k": 100121,
+      "casette_1_A": 1368,
+      "casette_2_A": 1000,
+      "casette_3_B": 605,
+      "casette_4_B": 100121,
       "last_transaction": "2023-01-06 17:33:15"
     }
   ]'
