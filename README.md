@@ -117,10 +117,10 @@ PATCH http://{{host}}:3232/api/status-mesin
 | tid| String | 255 |
 | atm_status    | String      | 255 |
 | last_amount   | int   |  64 |
-| casette_1_100k  | int |  64  |
-| casette_2_100k | int | 64 |
-| casette_3_50k    | int  | 64 |
-| casette_4_50k    | int  | 64 |
+| casette_1_A  | int |  64  |
+| casette_2_A | int | 64 |
+| casette_3_B    | int  | 64 |
+| casette_4_B   | int  | 64 |
 | last_transaction   | timestamp  | YYYY-MM-DD HH-MM-SS |
 
 #### Response Description
