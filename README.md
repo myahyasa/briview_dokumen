@@ -58,7 +58,7 @@ PATCH http://{{host}}:3232/api/tiket
 #### Example API
 ```json
 curl --location --request POST 'http://{{host}}:3232/api/tiket' \
---header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzI3OTkxMDYsInVzZXIiOnsiaWQiOjI1fX0.tPBNCEXELWvCFl9_SjyskCCXlqwyJqBLix7Cm3WKf6g' \
+--header 'Authorization: {token}' \
 --header 'Content-Type: application/json' \
 --data-raw '[
     {
@@ -142,7 +142,7 @@ PATCH http://{{host}}:3232/api/status-mesin
 #### Example API
 ```json
 curl --location --request POST 'http://xxx:3232/api/status-mesin' \
---header 'Authorization: xx-xx--xxx' \
+--header 'Authorization: {token}' \
 --header 'Content-Type: application/json' \
 --data-raw '[
     {
