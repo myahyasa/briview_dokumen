@@ -21,7 +21,7 @@ PATCH http://{{host}}:3232/api/tiket
 | Parameters |  Data Type  | Max Character | 	
 | ------------- |:--------------:| -------------|
 | no_tiket| String | 255 |
-| tid     | int64      | 12 |
+| tid     | String      | 16 |
 | error   | String    |  255  |
 | status  | String |  255  |
 | service_level | String | 255 |
